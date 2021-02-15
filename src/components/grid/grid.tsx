@@ -7,16 +7,26 @@ import { GridComponent, GridTile } from './@types';
 
 const Grid: GridComponent = ({ rows, columns }) => {
   const tiles = [];
-  const colors = ['red', 'green', 'blue', 'pink'];
+
+  const genNumber = () => Math.floor(Math.random() * 256);
+  const colors = new Array(Math.ceil((rows * columns) / 2))
+    .fill(null)
+    .map(() => {
+      return `rgb(${genNumber()}, ${genNumber()}, ${genNumber()})`;
+    });
+  const shuffleColors = List(colors.concat(colors)).sortBy(Math.random);
 
   for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
     const row = [];
     for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
+      const index = columns * rowIndex + columnIndex;
       row.push({
-        index: columns * rowIndex + columnIndex,
-        hidden: true,
+        row: rowIndex,
+        column: columnIndex,
         removed: false,
-        color: colors[columnIndex],
+        index,
+        hidden: true,
+        color: shuffleColors.get(index),
       });
     }
     tiles.push(List.of(...row));
@@ -34,7 +44,7 @@ const Grid: GridComponent = ({ rows, columns }) => {
       const timeoutId = setTimeout(() => {
         dispatch({ type: GRID_ACTIONS.REMOVE_IDENTITY, payload: {} });
         dispatch({ type: GRID_ACTIONS.HIDE_ALL, payload: {} });
-      }, 1000);
+      }, 500);
 
       return () => clearTimeout(timeoutId);
     }
@@ -55,10 +65,13 @@ const Grid: GridComponent = ({ rows, columns }) => {
         return row.map((tile: GridTile, columnIndex: number) => {
           return (
             <div
-              hidden={tile.removed}
               className="grid__tile"
               key={rowIndex + columnIndex}
-              style={{ gridRow: rowIndex + 1, gridColumn: columnIndex + 1 }}
+              style={{
+                gridRow: rowIndex + 1,
+                gridColumn: columnIndex + 1,
+                opacity: tile.removed ? 0 : 1,
+              }}
             >
               <Tile {...tile} clickHandler={clickHandler} />
             </div>

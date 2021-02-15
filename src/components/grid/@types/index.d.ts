@@ -5,7 +5,7 @@ type GridState = Map<{
   tiles: List<List<GridTile>>;
 }>;
 
-type GridTile = { removed: boolean } & TileProps;
+type GridTile = { removed: boolean; column: number; row: number } & TileProps;
 
 type GridAction = {
   type: string;

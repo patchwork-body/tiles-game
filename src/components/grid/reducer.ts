@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable';
-import { GridReducer, GridTile } from './@types';
+import { GridReducer, GridState, GridTile } from './@types';
 
 enum GRID_ACTIONS {
   REVEAL_TILE = '@REVEAL_TILE',
@@ -31,10 +31,17 @@ const gridReducer: GridReducer = (state, action) => {
     );
 
     if (hasIdentity) {
-      // return state.get('prevRevealedTiles').reduce((state: GridState, tile: GridTile) => {
-      //   return state;
-      // }, state);
-      return state;
+      return state
+        .get('prevRevealedTiles')
+        .reduce((state: GridState, revealedTile: GridTile) => {
+          return state.updateIn(
+            ['tiles', revealedTile.row, revealedTile.column],
+            (tile: GridTile) => ({
+              ...tile,
+              removed: true,
+            }),
+          );
+        }, state);
     } else {
       return state;
     }
