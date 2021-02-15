@@ -1,3 +1,12 @@
 .grid {
+  margin: 5rem;
   display: grid;
+  gap: 2rem 1.5rem;
+}
+
+.grid__tile {
+  background-color: #c7c7c7;
+  border-radius: 0.5rem;
+  min-width: 4rem;
+  min-height: 6rem;
 }

@@ -1,4 +1,9 @@
 .tile {
+  border-radius: inherit;
   min-width: 100%;
   min-height: 100%;
+}
+
+.tile_hidden {
+  visibility: hidden;
 }
