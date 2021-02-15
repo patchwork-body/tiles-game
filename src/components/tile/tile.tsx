@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 
-const Tile: TileComponent = ({ color, hidden }) => {
+const Tile: TileComponent = ({ index, color, hidden, clickHandler }) => {
   const classList = ['tile'];
 
   if (hidden) {
     classList.push('tile_hidden');
   }
 
+  const onClick = (event: SyntheticEvent) => {
+    const index = Number(event.currentTarget.getAttribute('data-index'));
+    clickHandler(index);
+  };
+
   return (
-    <div className={classList.join(' ')} style={{ background: color }}></div>
+    <div
+      data-index={index}
+      className={classList.join(' ')}
+      style={{ background: color }}
+      onClick={onClick}
+    ></div>
   );
 };
 

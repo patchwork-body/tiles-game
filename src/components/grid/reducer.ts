@@ -5,14 +5,18 @@ enum GRID_ACTIONS {
 }
 
 const gridReducer: GridReducer = (state, action) => {
-  switch (action.type) {
-    case GRID_ACTIONS.REVEAL_TILE:
-      return state.updateIn(
+  if (action.type === GRID_ACTIONS.REVEAL_TILE) {
+    const { row, column } = action.payload;
+    const targetTile = state.get('tiles').get(row).get(column);
+
+    return state
+      .updateIn(
         ['tiles', action.payload.row, action.payload.column],
         (tile: GridTile) => ({ ...tile, hidden: false }),
-      );
-    default:
-      return state;
+      )
+      .update('prevRevealedTile', () => targetTile);
+  } else {
+    return state;
   }
 };
 

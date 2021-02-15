@@ -1,10 +1,11 @@
 import { List, Map } from 'immutable';
 
 type GridState = Map<{
+  prevRevealedTile: GridTile | null;
   tiles: List<List<GridTile>>;
 }>;
 
-type GridTile = TileProps;
+type GridTile = { removed: boolean } & TileProps;
 
 type GridAction = {
   type: string;
