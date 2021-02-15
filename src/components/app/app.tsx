@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from '../grid';
 
 const App: AppComponent = () => {
-  return <Grid rows={2} columns={2} />;
+  return <Grid rows={4} columns={4} />;
 };
 
 export { App };
