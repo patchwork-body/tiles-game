@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridTile should match snapshot 1`] = `
+<div
+  class="grid"
+>
+  <div
+    class="grid__tile"
+    style="grid-row: 1; grid-column: 1; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="0"
+      style="background: rgb(103, 216, 123);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 1; grid-column: 2; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="1"
+      style="background: rgb(189, 8, 26);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 1; grid-column: 3; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="2"
+      style="background: rgb(150, 69, 252);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 1; grid-column: 4; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="3"
+      style="background: rgb(68, 21, 24);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 2; grid-column: 1; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="4"
+      style="background: rgb(68, 21, 24);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 2; grid-column: 2; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="5"
+      style="background: rgb(177, 223, 153);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 2; grid-column: 3; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="6"
+      style="background: rgb(177, 223, 153);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 2; grid-column: 4; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="7"
+      style="background: rgb(163, 197, 37);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 3; grid-column: 1; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="8"
+      style="background: rgb(163, 197, 37);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 3; grid-column: 2; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="9"
+      style="background: rgb(119, 237, 222);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 3; grid-column: 3; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="10"
+      style="background: rgb(150, 69, 252);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 3; grid-column: 4; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="11"
+      style="background: rgb(189, 8, 26);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 4; grid-column: 1; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="12"
+      style="background: rgb(103, 216, 123);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 4; grid-column: 2; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="13"
+      style="background: rgb(119, 237, 222);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 4; grid-column: 3; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="14"
+      style="background: rgb(217, 160, 42);"
+    />
+  </div>
+  <div
+    class="grid__tile"
+    style="grid-row: 4; grid-column: 4; opacity: 1;"
+  >
+    <div
+      class="flipped-tile flipped-tile_hidden"
+      data-index="15"
+      style="background: rgb(217, 160, 42);"
+    />
+  </div>
+</div>
+`;
