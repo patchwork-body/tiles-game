@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent, useCallback } from 'react';
 
 const FlippedTile: FlippedTileComponent = ({
   index,
@@ -12,10 +12,13 @@ const FlippedTile: FlippedTileComponent = ({
     classList.push('flipped-tile_hidden');
   }
 
-  const onClick = (event: SyntheticEvent) => {
-    const index = Number(event.currentTarget.getAttribute('data-index'));
-    clickHandler(index);
-  };
+  const onClick = useCallback(
+    (event: SyntheticEvent) => {
+      const index = Number(event.currentTarget.getAttribute('data-index'));
+      clickHandler(index);
+    },
+    [clickHandler],
+  );
 
   return (
     <div
