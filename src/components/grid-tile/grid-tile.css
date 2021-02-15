@@ -1,0 +1,6 @@
+.grid__tile {
+  background-color: #c7c7c7;
+  border-radius: 0.5rem;
+  width: 6rem;
+  min-height: 6rem;
+}

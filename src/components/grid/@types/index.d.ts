@@ -1,11 +1,18 @@
 import { List, Map } from 'immutable';
 
 type GridState = Map<{
-  prevRevealedTiles: Map<number, GridTile>;
-  tiles: List<List<GridTile>>;
+  prevRevealedTiles: Map<number, GridTileData>;
+  tiles: List<List<GridTileData>>;
 }>;
 
-type GridTile = { removed: boolean; column: number; row: number } & TileProps;
+type GridTileData = {
+  index: number;
+  row: number;
+  column: number;
+  removed: boolean;
+  hidden: boolean;
+  color: string;
+};
 
 type GridAction = {
   type: string;

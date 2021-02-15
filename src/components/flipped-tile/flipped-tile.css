@@ -1,9 +1,9 @@
-.tile {
+.flipped-tile {
   border-radius: inherit;
   min-width: 100%;
   min-height: 100%;
 }
 
-.tile_hidden {
+.flipped-tile_hidden {
   opacity: 0;
 }

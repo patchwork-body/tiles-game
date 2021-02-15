@@ -1,9 +1,9 @@
 import React, { useEffect, useReducer } from 'react';
 import { List, Map } from 'immutable';
 
-import { Tile } from '../tile';
 import { gridReducer, GRID_ACTIONS } from './reducer';
-import { GridComponent, GridTile } from './@types';
+import { GridComponent, GridTileData } from './@types';
+import { GridTile } from '../grid-tile';
 
 const Grid: GridComponent = ({ rows, columns }) => {
   const tiles = [];
@@ -61,20 +61,19 @@ const Grid: GridComponent = ({ rows, columns }) => {
 
   return (
     <div className="grid">
-      {state.get('tiles').map((row: List<GridTile>, rowIndex: number) => {
-        return row.map((tile: GridTile, columnIndex: number) => {
+      {state.get('tiles').map((row: List<GridTileData>, rowIndex: number) => {
+        return row.map((tile: GridTileData, columnIndex: number) => {
           return (
-            <div
-              className="grid__tile"
-              key={rowIndex + columnIndex}
-              style={{
-                gridRow: rowIndex + 1,
-                gridColumn: columnIndex + 1,
-                opacity: tile.removed ? 0 : 1,
+            <GridTile
+              key={tile.index}
+              row={rowIndex + 1}
+              column={columnIndex + 1}
+              removed={tile.removed}
+              flippedTileProps={{
+                ...tile,
+                clickHandler,
               }}
-            >
-              <Tile {...tile} clickHandler={clickHandler} />
-            </div>
+            />
           );
         });
       })}

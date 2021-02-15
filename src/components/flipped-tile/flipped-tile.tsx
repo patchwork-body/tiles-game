@@ -1,10 +1,15 @@
 import React, { SyntheticEvent } from 'react';
 
-const Tile: TileComponent = ({ index, color, hidden, clickHandler }) => {
-  const classList = ['tile'];
+const FlippedTile: FlippedTileComponent = ({
+  index,
+  color,
+  hidden,
+  clickHandler,
+}) => {
+  const classList = ['flipped-tile'];
 
   if (hidden) {
-    classList.push('tile_hidden');
+    classList.push('flipped-tile_hidden');
   }
 
   const onClick = (event: SyntheticEvent) => {
@@ -22,4 +27,4 @@ const Tile: TileComponent = ({ index, color, hidden, clickHandler }) => {
   );
 };
 
-export { Tile };
+export { FlippedTile };

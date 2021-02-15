@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable';
-import { GridReducer, GridState, GridTile } from './@types';
+import { GridReducer, GridState, GridTileData } from './@types';
 
 enum GRID_ACTIONS {
   REVEAL_TILE = '@REVEAL_TILE',
@@ -18,12 +18,12 @@ const gridReducer: GridReducer = (state, action) => {
 
     return state
       .updateIn(['tiles', row, column], () => targetTile)
-      .update('prevRevealedTiles', (prev: Map<number, GridTile>) =>
+      .update('prevRevealedTiles', (prev: Map<number, GridTileData>) =>
         prev.set(targetTile.index, targetTile),
       );
   } else if (action.type === GRID_ACTIONS.REMOVE_IDENTITY) {
     const { result: hasIdentity } = state.get('prevRevealedTiles').reduce(
-      (prev: { result: boolean; value: string }, tile: GridTile) => ({
+      (prev: { result: boolean; value: string }, tile: GridTileData) => ({
         result: prev.value === tile.color,
         value: tile.color,
       }),
@@ -33,10 +33,10 @@ const gridReducer: GridReducer = (state, action) => {
     if (hasIdentity) {
       return state
         .get('prevRevealedTiles')
-        .reduce((state: GridState, revealedTile: GridTile) => {
+        .reduce((state: GridState, revealedTile: GridTileData) => {
           return state.updateIn(
             ['tiles', revealedTile.row, revealedTile.column],
-            (tile: GridTile) => ({
+            (tile: GridTileData) => ({
               ...tile,
               removed: true,
             }),
@@ -47,8 +47,8 @@ const gridReducer: GridReducer = (state, action) => {
     }
   } else if (action.type === GRID_ACTIONS.HIDE_ALL) {
     return state
-      .update('tiles', (tiles: List<List<GridTile>>) =>
-        tiles.map((row: List<GridTile>) =>
+      .update('tiles', (tiles: List<List<GridTileData>>) =>
+        tiles.map((row: List<GridTileData>) =>
           row.map(tile => ({ ...tile, hidden: true })),
         ),
       )
