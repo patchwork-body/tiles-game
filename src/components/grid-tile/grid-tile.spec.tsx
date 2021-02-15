@@ -21,6 +21,13 @@ describe('GridTile', () => {
     flippedTileProps,
   };
 
+  test('should be removed', () => {
+    const { container } = render(<GridTile {...{ ...props, removed: true }} />);
+    expect(
+      container.firstElementChild?.classList.contains('grid__tile_removed'),
+    ).toBeTruthy();
+  });
+
   test('should match snapshot', () => {
     const { container } = render(<GridTile {...props} />);
     expect(container.firstElementChild).toMatchSnapshot();
