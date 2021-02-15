@@ -4,3 +4,7 @@
   width: 6rem;
   min-height: 6rem;
 }
+
+.grid__tile_removed {
+  opacity: 0;
+}

@@ -3,7 +3,7 @@
 exports[`GridTile should match snapshot 1`] = `
 <div
   class="grid__tile"
-  style="grid-row: 0; grid-column: 0; opacity: 1;"
+  style="grid-row: 0; grid-column: 0;"
 >
   <div
     class="flipped-tile flipped-tile_hidden"

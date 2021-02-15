@@ -13,8 +13,10 @@ describe('GridTile', () => {
     columns,
   };
 
-  test('should match snapshot', () => {
+  test('count children', () => {
     const { container } = render(<Grid {...props} />);
-    expect(container.firstElementChild).toMatchSnapshot();
+    expect(container.firstElementChild?.childElementCount).toEqual(
+      rows * columns,
+    );
   });
 });

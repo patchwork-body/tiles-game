@@ -8,13 +8,18 @@ const GridTile: GridTileComponent = ({
   removed,
   flippedTileProps,
 }) => {
+  const classes = ['grid__tile'];
+
+  if (removed) {
+    classes.push('grid__tile_removed');
+  }
+
   return (
     <div
-      className="grid__tile"
+      className={classes.join(' ')}
       style={{
         gridRow: row,
         gridColumn: column,
-        opacity: removed ? 0 : 1,
       }}
     >
       <FlippedTile {...flippedTileProps} />
