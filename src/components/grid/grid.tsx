@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { List, Map } from 'immutable';
 
 import { Tile } from '../tile';
@@ -24,14 +24,29 @@ const Grid: GridComponent = ({ rows, columns }) => {
 
   const [state, dispatch] = useReducer(
     gridReducer,
-    Map({ prevRevealedTile: null, tiles: List.of(...tiles) }),
+    Map({ prevRevealedTiles: Map(), tiles: List.of(...tiles) }),
   );
 
-  const clickHandler = (index: number) => {
-    const row = (index - (index % columns)) / columns;
-    const column = index % columns;
+  const prevRevealedTilesCount = state.get('prevRevealedTiles').size;
 
-    dispatch({ type: GRID_ACTIONS.REVEAL_TILE, payload: { row, column } });
+  useEffect(() => {
+    if (prevRevealedTilesCount === 2) {
+      const timeoutId = setTimeout(() => {
+        dispatch({ type: GRID_ACTIONS.REMOVE_IDENTITY, payload: {} });
+        dispatch({ type: GRID_ACTIONS.HIDE_ALL, payload: {} });
+      }, 1000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [prevRevealedTilesCount]);
+
+  const clickHandler = (index: number) => {
+    if (prevRevealedTilesCount < 2) {
+      const row = (index - (index % columns)) / columns;
+      const column = index % columns;
+
+      dispatch({ type: GRID_ACTIONS.REVEAL_TILE, payload: { row, column } });
+    }
   };
 
   return (

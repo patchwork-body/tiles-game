@@ -1,7 +1,7 @@
 import { List, Map } from 'immutable';
 
 type GridState = Map<{
-  prevRevealedTile: GridTile | null;
+  prevRevealedTiles: Map<number, GridTile>;
   tiles: List<List<GridTile>>;
 }>;
 
