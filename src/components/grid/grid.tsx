@@ -36,7 +36,7 @@ const Grid: GridComponent = ({ rows, columns }) => {
   }, [prevRevealedTilesCount]);
 
   const clickHandler = useCallback(
-    () => (index: number) => {
+    (index: number) => {
       if (prevRevealedTilesCount < 2) {
         const row = (index - (index % columns)) / columns;
         const column = index % columns;
