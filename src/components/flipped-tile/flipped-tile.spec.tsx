@@ -20,7 +20,9 @@ describe('GridTile', () => {
     const { container } = render(
       <FlippedTile {...{ ...props, hidden: false }} />,
     );
-    expect(container.classList.contains('tile_hidden')).toBeFalsy();
+    expect(
+      container.firstElementChild?.classList.contains('flipped-tile_hidden'),
+    ).toBeFalsy();
   });
 
   test('should match snapshot', () => {
