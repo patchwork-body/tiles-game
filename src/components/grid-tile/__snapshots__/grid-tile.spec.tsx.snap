@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridTile should match snapshot 1`] = `
+<div
+  class="grid__tile"
+  style="grid-row: 0; grid-column: 0; opacity: 1;"
+>
+  <div
+    class="flipped-tile flipped-tile_hidden"
+    data-index="0"
+    style="background: black;"
+  />
+</div>
+`;
