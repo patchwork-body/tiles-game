@@ -24,10 +24,12 @@ const revealTile = (state: GridState, action: GridAction): GridState => {
 
 const removeIdentity = (state: GridState): GridState => {
   const { result: hasIdentity } = state.get('prevRevealedTiles').reduce(
-    (prev: { result: boolean; value: string }, tile: GridTileData) => ({
-      result: prev.value === tile.color,
-      value: tile.color,
-    }),
+    (prev: { result: boolean; value: string }, tile: GridTileData) => {
+      return {
+        result: prev.value === tile.color,
+        value: tile.color,
+      };
+    },
     { result: false, value: '' },
   );
 
@@ -70,4 +72,4 @@ const gridReducer: GridReducer = (state, action) => {
   }
 };
 
-export { GRID_ACTIONS, gridReducer };
+export { GRID_ACTIONS, gridReducer, revealTile, removeIdentity, hideAll };
